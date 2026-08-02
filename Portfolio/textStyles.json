@@ -1,0 +1,82 @@
+{
+  "fileName": "Portfolio",
+  "textStyles": [
+    {
+      "name": "H1",
+      "fontFamily": "Afacad",
+      "fontWeight": "Bold",
+      "fontSize": 40,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "LOWER"
+    },
+    {
+      "name": "H2",
+      "fontFamily": "42dot Sans",
+      "fontWeight": "Light",
+      "fontSize": 24,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "body",
+      "fontFamily": "42dot Sans",
+      "fontWeight": "Regular",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "body bold",
+      "fontFamily": "42dot Sans",
+      "fontWeight": "ExtraBold",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "UPPER"
+    },
+    {
+      "name": "Label",
+      "fontFamily": "42dot Sans",
+      "fontWeight": "SemiBold",
+      "fontSize": 14,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "UPPER"
+    },
+    {
+      "name": "Label selected",
+      "fontFamily": "42dot Sans",
+      "fontWeight": "ExtraBold",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "Button",
+      "fontFamily": "42dot Sans",
+      "fontWeight": "ExtraBold",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    }
+  ]
+}
