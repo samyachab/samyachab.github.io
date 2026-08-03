@@ -106,12 +106,38 @@ if (lightboxTargets.length || posterFrames.length) {
   });
 
   // Posters have a hover overlay sitting on top of the image, so the click
-  // target is the whole frame rather than the <img> itself.
+  // target is the whole frame rather than the <img> itself. Touch devices
+  // have no hover, so the description would never be reachable there —
+  // first tap reveals it (same visual as desktop hover), second tap opens
+  // the lightbox. Desktop keeps its original click-opens-lightbox behavior.
+  const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
   posterFrames.forEach((frame) => {
     const img = frame.querySelector('.creations-poster__img');
     if (!img) return;
-    frame.addEventListener('click', () => open(img.currentSrc || img.src, img.alt));
+
+    if (isTouchDevice) {
+      frame.addEventListener('click', (e) => {
+        if (!frame.classList.contains('is-active')) {
+          e.preventDefault();
+          posterFrames.forEach((f) => f.classList.remove('is-active'));
+          frame.classList.add('is-active');
+          return;
+        }
+        open(img.currentSrc || img.src, img.alt);
+      });
+    } else {
+      frame.addEventListener('click', () => open(img.currentSrc || img.src, img.alt));
+    }
   });
+
+  if (isTouchDevice && posterFrames.length) {
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.creations-poster__frame')) {
+        posterFrames.forEach((f) => f.classList.remove('is-active'));
+      }
+    });
+  }
 
   overlay.addEventListener('click', close);
   window.addEventListener('keydown', (e) => {

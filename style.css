@@ -623,6 +623,15 @@ button {
   overflow: hidden;
 }
 
+/* Eightlines' banner photo doesn't need the full standard height */
+.pd-banner--el {
+  height: 386px;
+}
+
+.pd-banner--el .pd-banner__content {
+  padding: 94px 40px 30px;
+}
+
 .pd-banner__bg {
   position: absolute;
   inset: 0;
@@ -1554,10 +1563,10 @@ button {
   flex-shrink: 0;
   width: 260px;
   height: auto;
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
+  object-position: center;
   border-radius: 8px;
-  background: #ececec;
+  background: var(--color-white);
 }
 
 .about-contact {
@@ -1778,7 +1787,8 @@ button {
 }
 
 .creations-poster__frame:hover .creations-poster__overlay,
-.creations-poster__frame:focus-within .creations-poster__overlay {
+.creations-poster__frame:focus-within .creations-poster__overlay,
+.creations-poster__frame.is-active .creations-poster__overlay {
   opacity: 1;
 }
 
@@ -1939,8 +1949,9 @@ button {
   }
 
   .filters {
-    flex-wrap: wrap;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 8px 24px;
   }
 
   .filters__btn {
@@ -1991,9 +2002,11 @@ button {
   }
 
   .cs-banner__filters {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 8px 24px;
     width: 90%;
-    row-gap: 8px;
   }
 
   .cs-title {
@@ -2006,8 +2019,15 @@ button {
     padding: 40px 20px 0;
   }
 
+  .pd-banner {
+    height: auto;
+    overflow: visible;
+  }
+
   .pd-banner__content {
-    padding: 80px 24px 24px;
+    height: auto;
+    padding: 80px 24px 32px;
+    gap: 16px;
   }
 
   .pd-banner__tagline {
@@ -2058,6 +2078,11 @@ button {
 
   .athlete-timeline__left {
     max-width: none;
+  }
+
+  .athlete-hero,
+  .about-hero {
+    padding: 0 24px;
   }
 
   .about-banner__title,
