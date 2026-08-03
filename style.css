@@ -178,6 +178,13 @@ button {
   color: var(--color-gray);
 }
 
+/* Same specificity as the :hover rule above, so it has to come after it or the
+   active link greys out on hover — and on touch the hover state sticks after a
+   tap, which made the active FR/EN read grey on mobile. */
+.header--overlay.is-scrolled .header__link[aria-current]:hover {
+  color: var(--color-red);
+}
+
 /* Left group: logo + language switcher. Keeping them in one flex child means
    the header still has exactly two children, so its space-between keeps the
    nav pinned right. */
