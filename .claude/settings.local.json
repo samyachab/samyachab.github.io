@@ -100,7 +100,8 @@
       "Bash(curl -s \"http://localhost:8834/case-study-eightlines.html\")",
       "PowerShell(Start-Process -FilePath \"python\" -ArgumentList \"-m\",\"http.server\",\"8834\" -WorkingDirectory \"C:\\\\Users\\\\myach\\\\Desktop\\\\Portfolio\" -WindowStyle Hidden; Start-Sleep -Seconds 2; try { \\(Invoke-WebRequest -Uri \"http://localhost:8834/fr/index.html\" -UseBasicParsing\\).StatusCode } catch { $_.Exception.Message })",
       "PowerShell(Get-Process python -ErrorAction SilentlyContinue)",
-      "PowerShell(Stop-Process -Force -ErrorAction SilentlyContinue)"
+      "PowerShell(Stop-Process -Force -ErrorAction SilentlyContinue)",
+      "PowerShell(Start-Process -FilePath \"python\" -ArgumentList \"-m\",\"http.server\",\"8834\" -WorkingDirectory \"C:\\\\Users\\\\myach\\\\Desktop\\\\Portfolio\" -WindowStyle Hidden; Start-Sleep -Seconds 2; \\(Invoke-WebRequest \"http://localhost:8834/fr/about.html\" -UseBasicParsing\\).StatusCode)"
     ]
   }
 }

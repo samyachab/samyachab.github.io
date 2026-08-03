@@ -126,14 +126,6 @@ button {
   color: var(--color-red);
 }
 
-.header__link:hover {
-  color: var(--color-gray);
-}
-
-.header__link[aria-current]:hover {
-  color: var(--color-red);
-}
-
 /* Overlay variant: transparent over a dark hero banner, white text,
    becomes the normal solid header once scrolled past the banner. */
 .header--overlay {
@@ -153,14 +145,6 @@ button {
   color: var(--color-red);
 }
 
-.header--overlay .header__link:hover {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.header--overlay .header__link[aria-current]:hover {
-  color: var(--color-red);
-}
-
 .header--overlay.is-scrolled {
   background: var(--color-white);
 }
@@ -174,15 +158,40 @@ button {
   color: var(--color-red);
 }
 
-.header--overlay.is-scrolled .header__link:hover {
-  color: var(--color-gray);
-}
+/* Header hover states, gathered here on purpose.
 
-/* Same specificity as the :hover rule above, so it has to come after it or the
-   active link greys out on hover — and on touch the hover state sticks after a
-   tap, which made the active FR/EN read grey on mobile. */
-.header--overlay.is-scrolled .header__link[aria-current]:hover {
-  color: var(--color-red);
+   They are gated behind (hover: hover) because a touch device applies :hover on
+   tap and keeps it until you tap elsewhere. Left ungated, tapping FR/EN left the
+   active link stuck in its hover colour instead of the red [aria-current] one.
+   On touch no rule below applies at all, so the plain colours above stand.
+
+   Within the block, each [aria-current]:hover rule must stay after the plain
+   :hover rule of the same context: they have identical specificity, so only
+   source order keeps the active link red instead of greying out. */
+@media (hover: hover) {
+  .header__link:hover {
+    color: var(--color-gray);
+  }
+
+  .header__link[aria-current]:hover {
+    color: var(--color-red);
+  }
+
+  .header--overlay .header__link:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .header--overlay .header__link[aria-current]:hover {
+    color: var(--color-red);
+  }
+
+  .header--overlay.is-scrolled .header__link:hover {
+    color: var(--color-gray);
+  }
+
+  .header--overlay.is-scrolled .header__link[aria-current]:hover {
+    color: var(--color-red);
+  }
 }
 
 /* Left group: logo + language switcher. Keeping them in one flex child means
