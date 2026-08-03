@@ -122,7 +122,7 @@ button {
   cursor: pointer;
 }
 
-.header__link[aria-current="page"] {
+.header__link[aria-current] {
   color: var(--color-red);
 }
 
@@ -130,7 +130,7 @@ button {
   color: var(--color-gray);
 }
 
-.header__link[aria-current="page"]:hover {
+.header__link[aria-current]:hover {
   color: var(--color-red);
 }
 
@@ -149,7 +149,7 @@ button {
   color: var(--color-white);
 }
 
-.header--overlay .header__link[aria-current="page"] {
+.header--overlay .header__link[aria-current] {
   color: var(--color-red);
 }
 
@@ -157,7 +157,7 @@ button {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.header--overlay .header__link[aria-current="page"]:hover {
+.header--overlay .header__link[aria-current]:hover {
   color: var(--color-red);
 }
 
@@ -170,12 +170,48 @@ button {
   color: var(--color-black);
 }
 
-.header--overlay.is-scrolled .header__link[aria-current="page"] {
+.header--overlay.is-scrolled .header__link[aria-current] {
   color: var(--color-red);
 }
 
 .header--overlay.is-scrolled .header__link:hover {
   color: var(--color-gray);
+}
+
+/* Left group: logo + language switcher. Keeping them in one flex child means
+   the header still has exactly two children, so its space-between keeps the
+   nav pinned right. */
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Language switcher: FR / EN. Its own flex group so the pair and its separator
+   never get split across two lines when the header wraps on narrow screens.
+   The links themselves are plain .header__link, so the active one picks up the
+   red [aria-current] treatment in all three header contexts. */
+.header__lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header__lang-sep {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-black);
+  opacity: 0.4;
+  user-select: none;
+}
+
+.header--overlay .header__lang-sep {
+  color: var(--color-white);
+}
+
+.header--overlay.is-scrolled .header__lang-sep {
+  color: var(--color-black);
 }
 
 /* ---------- Hero / Body ---------- */
@@ -2227,8 +2263,17 @@ button {
     font-size: 17px;
   }
 
-  .header__link {
+  .header__link,
+  .header__lang-sep {
     font-size: 10.5px;
+  }
+
+  .header__lang {
+    gap: 4px;
+  }
+
+  .header__left {
+    gap: 12px;
   }
 
   .hero__name {

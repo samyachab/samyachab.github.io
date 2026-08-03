@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samy Achab - Portfolio</title>
+<meta name="description" content="Portfolio de Samy Achab - produit, gestion de projet, marketing et design. Ingenieur, designer et coureur de 800m classe dans le top 15 francais, a la recherche d’un CDI.">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="alternate" hreflang="fr" href="index.html">
+<link rel="alternate" hreflang="en" href="../index.html">
+<link rel="alternate" hreflang="x-default" href="../index.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="header" id="site-header">
+  <div class="header__left">
+    <a href="index.html" class="header__logo">samy achab</a>
+    <span class="header__lang" role="group" aria-label="Langue">
+      <a href="index.html" class="header__link" hreflang="fr" lang="fr" aria-current="true">FR</a>
+      <span class="header__lang-sep" aria-hidden="true">/</span>
+      <a href="../index.html" class="header__link" hreflang="en" lang="en">EN</a>
+    </span>
+  </div>
+  <nav class="header__nav">
+    <a href="index.html" class="header__link" aria-current="page">Accueil</a>
+    <a href="case-study.html" class="header__link">Etudes de cas</a>
+    <a href="athlete.html" class="header__link">Athlete</a>
+    <a href="creations.html" class="header__link">Creations</a>
+    <a href="about.html" class="header__link">A propos</a>
+  </nav>
+</header>
+
+<div class="page">
+  <main class="home-body">
+    <div class="home-body__art">
+      <img src="../assets/images/hero-bg.png" alt="">
+    </div>
+
+    <section class="hero-block">
+      <div class="hero">
+      <div class="hero__left">
+        <div class="hero__photo">
+          <img src="../assets/images/samy.png" alt="Samy Achab">
+        </div>
+        <h1 class="hero__name">je suis Samy Achab</h1>
+        <p class="hero__tagline">Actuellement a la recherche<br>d’un poste en CDI</p>
+        <a href="case-study.html" class="btn-outline">
+          Decouvrir mon travail
+          <span class="btn-outline__arrow">
+            <span class="btn-outline__arrow-line"></span>
+            <span class="btn-outline__arrow-head"></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="hero__right">
+        <div class="filters" role="tablist" aria-label="Filtrer la description par domaine">
+          <button class="filters__btn" type="button" data-filter="product" aria-pressed="true">Produit</button>
+          <button class="filters__btn" type="button" data-filter="marketing" aria-pressed="false">Marketing</button>
+          <button class="filters__btn" type="button" data-filter="design" aria-pressed="false">Design</button>
+          <button class="filters__btn" type="button" data-filter="athlete" aria-pressed="false">Athlete</button>
+        </div>
+        <div class="hero__description">
+          <p id="filter-description" data-product="Je faconne des experiences digitales. De l’identification des points de friction a l’optimisation de l’adoption, je construis des produits guides par la donnee. Chaque fonctionnalite resout un vrai probleme." data-marketing="Je cree des mouvements, pas seulement des campagnes. Du street marketing reunissant plus de 100 participants aux partenariats de marque avec Nike, je concois des experiences qui embarquent les communautes. Tout est une question d’authenticite et d’impact." data-design="J’explore le chemin entre design d’experience, creation graphique et expression visuelle. Des prototypes interactifs sur Figma aux univers de marque coherents, je crois qu’un design parle sans avoir besoin de mots" data-athlete="Je donne le meilleur de moi-meme sous pression. Coureur de 800m classe dans le top 15 francais, j’apporte la meme discipline, la meme resilience et le meme esprit de competition a chaque defi. Le succes se construit dans la regularite, pas dans les raccourcis">Je faconne des experiences digitales. De l’identification des points de friction a l’optimisation de l’adoption, je construis des produits guides par la donnee. Chaque fonctionnalite resout un vrai probleme.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="cases-block">
+      <div class="cases" aria-label="Projets phares">
+      <a href="case-study-iko.html" class="case-card case-card--iko">
+        <div class="case-card__logo"><img src="../assets/images/logo-iko.svg" alt="Logo IKO"></div>
+        <div class="case-card__content">
+          <p class="case-card__label">Produit</p>
+          <p class="case-card__title">iko</p>
+          <p class="case-card__date">2025 - Aujourd’hui</p>
+          <p class="case-card__desc">Une plateforme qui met en relation des lievres verifies avec des coureurs ambitieux et des organisateurs de courses. Fini l’improvisation sur l’allure pour les athletes qui ne peuvent pas se permettre de manquer leur objectif.</p>
+          <div class="case-card__tags">
+            <span class="case-card__tag">Strategie produit</span>
+            <span class="case-card__tag">UX/UI Design</span>
+            <span class="case-card__tag">Entrepreneuriat</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="case-study-sunday.html" class="case-card case-card--sunday">
+        <div class="case-card__logo"><img src="../assets/images/logo-sunday.svg" alt="Logo sunday"></div>
+        <div class="case-card__content">
+          <p class="case-card__label">Gestion de projet</p>
+          <p class="case-card__title">sunday</p>
+          <p class="case-card__date">Decembre 2025 - Mai 2026</p>
+          <p class="case-card__desc">Chef de projet dans une startup de paiement pour la restauration. Pilotage d’une equipe support internationale de 10 personnes, 50 000 € d’impayes recuperes et automatisation des operations cles.</p>
+          <div class="case-card__tags">
+            <span class="case-card__tag">Gestion de projet</span>
+            <span class="case-card__tag">Analyse de donnees</span>
+            <span class="case-card__tag">Automatisation</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="case-study-eightlines.html" class="case-card case-card--e8l">
+        <div class="case-card__logo"><img src="../assets/images/logo-e8l.svg" alt="Logo Eightlines"></div>
+        <div class="case-card__content">
+          <p class="case-card__label">Marketing &amp; Evenements</p>
+          <p class="case-card__title">Eightlines</p>
+          <p class="case-card__date">Mai 2024 - Aujourd’hui</p>
+          <p class="case-card__desc">Faire naitre un mouvement autour de la culture running entre Tokyo, Paris et Los Angeles. Evenements, partenariats de marque et communaute a grande echelle avec Nike, PSG et ON.</p>
+          <div class="case-card__tags">
+            <span class="case-card__tag">Event Management</span>
+            <span class="case-card__tag">Brand Strategy</span>
+            <span class="case-card__tag">Consulting</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="case-study-osme.html" class="case-card case-card--osme">
+        <div class="case-card__logo"><img src="../assets/images/logo-osme.png" alt="Logo ØSME"></div>
+        <div class="case-card__content">
+          <p class="case-card__label">Design</p>
+          <img class="case-card__title case-card__title--img" src="../assets/images/titre-design.svg" alt="ØSME">
+          <p class="case-card__date">Juin - Sep. 2024</p>
+          <p class="case-card__desc">Identite visuelle et presence digitale pour un concept store de mode ethique qui met en avant de jeunes createurs francais eco-responsables.</p>
+          <div class="case-card__tags">
+            <span class="case-card__tag">UX/UI Design</span>
+            <span class="case-card__tag">Direction artistique</span>
+            <span class="case-card__tag">Reseaux sociaux</span>
+          </div>
+        </div>
+      </a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="footer">
+  <p class="footer__copyright">&copy; 2026 - SAMY ACHAB</p>
+  <div class="footer__center">
+    <p class="footer__name">samy achab</p>
+    <div class="footer__info">
+      <a href="https://www.linkedin.com/in/samyachab/" target="_blank" rel="noopener">Linkedin</a>
+      <a href="../assets/cv-samy-achab.pdf" target="_blank">CV</a>
+      <a href="mailto:myachab@gmail.com">myachab@gmail.com</a>
+      <span>+33 7 82 28 56 76</span>
+    </div>
+  </div>
+  <img class="footer__icon" src="../assets/images/footer-icon.svg" alt="">
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samy Achab — Portfolio</title>
+<title>Samy Achab - Portfolio</title>
+<meta name="description" content="Portfolio of Samy Achab - product, project management, marketing and design. Engineer, designer and top 15 France 800m runner, currently seeking full-time opportunities.">
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="fr" href="fr/index.html">
+<link rel="alternate" hreflang="x-default" href="index.html">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="header" id="site-header">
-  <a href="index.html" class="header__logo">samy achab</a>
+  <div class="header__left">
+    <a href="index.html" class="header__logo">samy achab</a>
+    <span class="header__lang" role="group" aria-label="Language">
+      <a href="fr/index.html" class="header__link" hreflang="fr" lang="fr">FR</a>
+      <span class="header__lang-sep" aria-hidden="true">/</span>
+      <a href="index.html" class="header__link" hreflang="en" lang="en" aria-current="true">EN</a>
+    </span>
+  </div>
   <nav class="header__nav">
     <a href="index.html" class="header__link" aria-current="page">Home</a>
     <a href="case-study.html" class="header__link">Case Study</a>
@@ -124,7 +135,7 @@
 </div>
 
 <footer class="footer">
-  <p class="footer__copyright">&copy; 2026 &ndash; SAMY ACHAB</p>
+  <p class="footer__copyright">&copy; 2026 - SAMY ACHAB</p>
   <div class="footer__center">
     <p class="footer__name">samy achab</p>
     <div class="footer__info">

@@ -97,7 +97,8 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8834/index.html; cat /tmp/server.log 2>/dev/null | tail -5)",
       "Bash(awk 'NR<=2021 && /@media/{line=NR; rule=$0} END{print line\": \"rule}' style.css)",
       "Bash(curl -s \"http://localhost:8834/style.css\")",
-      "Bash(curl -s \"http://localhost:8834/case-study-eightlines.html\")"
+      "Bash(curl -s \"http://localhost:8834/case-study-eightlines.html\")",
+      "PowerShell(Start-Process -FilePath \"python\" -ArgumentList \"-m\",\"http.server\",\"8834\" -WorkingDirectory \"C:\\\\Users\\\\myach\\\\Desktop\\\\Portfolio\" -WindowStyle Hidden; Start-Sleep -Seconds 2; try { \\(Invoke-WebRequest -Uri \"http://localhost:8834/fr/index.html\" -UseBasicParsing\\).StatusCode } catch { $_.Exception.Message })"
     ]
   }
 }
