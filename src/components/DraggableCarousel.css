@@ -1,0 +1,42 @@
+.draggable-carousel {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 0 40px;
+  cursor: grab;
+}
+
+.draggable-carousel:active {
+  cursor: grabbing;
+}
+
+.draggable-carousel__track {
+  display: flex;
+  gap: 10px;
+}
+
+.draggable-carousel__track img {
+  flex: 0 0 420px;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 4px;
+  pointer-events: auto;
+  user-select: none;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.2s ease;
+}
+
+.draggable-carousel__track img:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 640px) {
+  .draggable-carousel {
+    padding: 0 20px;
+  }
+
+  .draggable-carousel__track img {
+    flex-basis: 260px;
+    height: 320px;
+  }
+}

@@ -1,0 +1,40 @@
+/* Mobile / small screens: native horizontal scroll */
+.project-cards {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+  padding: 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(37, 37, 37, 0.12) transparent;
+}
+
+/* Desktop: pinned section, cards translate horizontally on vertical scroll */
+.project-cards-pin {
+  position: relative;
+}
+
+.project-cards-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.project-cards-track {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+  padding: 0 40px;
+  will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .project-cards {
+    gap: 16px;
+    padding: 20px;
+  }
+}

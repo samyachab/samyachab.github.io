@@ -1,0 +1,489 @@
+.iko {
+  position: relative;
+  /* clip on both axes so the fixed-height red thread can't add phantom scroll
+     height below the footer; clip (unlike hidden) keeps position: sticky working. */
+  overflow: clip;
+  background: var(--color-fond);
+  min-height: 100vh;
+  isolation: isolate;
+  overflow-anchor: none;
+}
+
+.iko__thread {
+  position: absolute;
+  top: -150px;
+  left: -250px;
+  width: 1500px;
+  height: 4800px;
+  max-width: none;
+  z-index: -1;
+  pointer-events: none;
+  /* Let the thread fade out before the closing sections so the bottom of the
+     page isn't crowded with red. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 72%, transparent 81%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 72%, transparent 81%);
+}
+
+/* Hero */
+.iko__hero {
+  padding: 70px 80px 0;
+}
+
+.iko__logo {
+  width: clamp(180px, 22vw, 300px);
+  height: auto;
+  display: block;
+  margin-bottom: 34px;
+}
+
+.iko__tagline {
+  font-family: var(--font-afacad);
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.35;
+  color: var(--color-noir);
+  max-width: 640px;
+  margin: 0 0 32px;
+}
+
+.iko__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 680px;
+}
+
+.iko__tag {
+  font-family: var(--font-afacad);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 15px;
+  border-radius: 100px;
+  border: 0.5px solid var(--color-nuance-vert);
+  color: var(--color-nuance-vert);
+  white-space: nowrap;
+}
+
+/* Sections */
+.iko__section {
+  padding-top: 150px;
+}
+
+.iko__section-title {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: normal;
+  text-transform: lowercase;
+  color: var(--color-nuance-vert);
+  margin: 0 0 64px;
+  padding: 0 80px;
+}
+
+/* Logo design */
+.iko__logo-design {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  padding: 0 80px;
+}
+
+.iko__logo-image {
+  flex: 0 0 46%;
+  width: 46%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  cursor: zoom-in;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.16);
+}
+
+.iko__logo-text {
+  flex: 1 1 0;
+  max-width: 540px;
+  margin: 0;
+  color: var(--color-gris);
+  white-space: pre-line;
+}
+
+/* Problem -> Solution comparison — pinned while the solutions reveal */
+.iko__pbsol-outer {
+  padding-top: 150px;
+}
+
+.iko__pbsol-pin {
+  height: 185vh;
+  position: relative;
+}
+
+.iko__pbsol-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.iko__pbsol {
+  padding: 0 80px;
+}
+
+.iko__pbsol-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+/* Static central divider between the two columns */
+.iko__pbsol-row::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background: rgba(37, 37, 37, 0.14);
+}
+
+.iko__pbsol-headrow {
+  padding-bottom: 18px;
+}
+
+.iko__pbsol-headrow::before {
+  top: 0;
+}
+
+.iko__pbsol-collabel {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: lowercase;
+  color: var(--color-noir);
+}
+
+.iko__pbsol-collabel:first-child {
+  padding-right: 50px;
+}
+
+.iko__pbsol-collabel--sol {
+  padding-left: 50px;
+  color: var(--color-nuance-vert);
+}
+
+.iko__pbsol-row + .iko__pbsol-row {
+  border-top: 1px solid rgba(37, 37, 37, 0.08);
+}
+
+.iko__pbsol-cell {
+  padding: 40px 0;
+}
+
+.iko__pbsol-cell--problem {
+  padding-right: 50px;
+}
+
+.iko__pbsol-cell--solution {
+  padding-left: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.iko__pbsol-actor {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--color-noir);
+  margin: 0 0 18px;
+}
+
+.iko__pbsol-pb + .iko__pbsol-pb {
+  margin-top: 18px;
+}
+
+.iko__pbsol-name {
+  font-family: var(--font-afacad);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-noir);
+  margin: 0 0 5px;
+}
+
+.iko__pbsol-text {
+  color: var(--color-gris);
+  margin: 0;
+}
+
+/* Product preview (transparent so the red thread shows through) */
+.iko__product {
+  padding-top: 150px;
+  background: transparent;
+}
+
+.iko__product-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.iko__product-title {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: normal;
+  text-transform: lowercase;
+  color: var(--color-nuance-vert);
+  margin: 0 0 54px;
+}
+
+/* Browser-chrome frame */
+.iko-frame {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1d1d1f;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+}
+
+.iko-frame__bar {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 13px;
+  background: #2a2a2c;
+}
+
+.iko-frame__bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4a4a4d;
+}
+
+.iko-frame__bar span:nth-child(1) {
+  background: #ff5f57;
+}
+.iko-frame__bar span:nth-child(2) {
+  background: #febc2e;
+}
+.iko-frame__bar span:nth-child(3) {
+  background: #28c840;
+}
+
+.iko-frame__img {
+  display: block;
+  /* The source JPGs carry a 1px light edge on the right (capture scrollbar);
+     overflow a few px so the frame clips it off. */
+  width: calc(100% + 6px);
+  height: auto;
+  cursor: zoom-in;
+}
+
+/* Overlapping composition: home (portrait) large, dashboard (landscape) over it */
+.iko__overlap {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.iko__overlap-base {
+  width: 44%;
+}
+
+.iko__overlap-over {
+  position: absolute;
+  left: 33%;
+  top: 34%;
+  width: 46%;
+  z-index: 2;
+}
+
+/* Differentiators */
+.iko__diffs {
+  display: flex;
+  gap: 44px;
+  padding: 0 80px;
+  align-items: stretch;
+}
+
+.iko__diff {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.iko__diff-title {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: normal;
+  color: var(--color-noir);
+  margin: 0 0 20px;
+}
+
+.iko__diff-text {
+  color: var(--color-gris);
+  margin: 0 0 26px;
+}
+
+.iko__diff-fil {
+  margin-top: auto;
+  width: 100%;
+  height: 12px;
+}
+
+/* Current status */
+.iko__status {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 0 80px;
+}
+
+.iko__status-row {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.iko__status-drop {
+  width: 26px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.iko__status-number {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-noir);
+  min-width: 76px;
+}
+
+.iko__status-label {
+  color: var(--color-gris);
+}
+
+/* CTA */
+.iko__cta-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 90px 80px 40px;
+}
+
+.iko__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid var(--color-nuance-vert);
+  border-radius: 8px;
+  padding: 14px 28px;
+  color: var(--color-nuance-vert);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: var(--font-afacad);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.iko__cta:hover {
+  background: var(--color-nuance-vert);
+  color: var(--color-blanc);
+}
+
+.iko__cta:hover svg path {
+  fill: var(--color-blanc);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .iko__logo-design {
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  .iko__logo-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .iko__diffs {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .iko__diff-fil {
+    margin-top: 20px;
+  }
+
+  /* No pinning on small screens */
+  .iko__pbsol-pin {
+    height: auto;
+  }
+
+  .iko__pbsol-sticky {
+    position: static;
+    height: auto;
+    display: block;
+  }
+
+  /* Problem/solution stacks: problem then solution per actor */
+  .iko__pbsol-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .iko__pbsol-row::before {
+    display: none;
+  }
+
+  .iko__pbsol-headrow {
+    display: none;
+  }
+
+  .iko__pbsol-cell--problem {
+    padding: 30px 0 16px;
+  }
+
+  .iko__pbsol-cell--solution {
+    padding: 0 0 30px;
+    border-left: 2px solid var(--color-nuance-vert);
+    padding-left: 20px;
+  }
+
+  /* Overlap collapses to a simple stack on small screens */
+  .iko__overlap-base {
+    width: 100%;
+  }
+
+  .iko__overlap-over {
+    position: static;
+    width: 62%;
+    margin: 18px 0 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .iko__hero {
+    padding: 50px 20px 0;
+  }
+
+  .iko__section-title,
+  .iko__logo-design,
+  .iko__pbsol,
+  .iko__diffs,
+  .iko__status,
+  .iko__cta-wrap,
+  .iko__product-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .iko__section {
+    padding-top: 110px;
+  }
+
+  .iko__cta-wrap {
+    justify-content: flex-start;
+  }
+}

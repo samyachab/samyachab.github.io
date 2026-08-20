@@ -1,0 +1,17 @@
+:root {
+  /* Couleurs — colors.json */
+  --color-noir: #252525;
+  --color-fond: #f5f3f0;
+  --color-gris: #535353;
+  --color-gris-clair: #cdc9c9;
+  --color-blanc: #ffffff;
+  --color-rouge: #db3434;
+  --color-nuance-rouge: #8e1212;
+  --color-2nd: #728e63;
+  --color-nuance-vert: #3f5632;
+  --color-vert-eau: #ccd3c4;
+
+  /* Typographie — textStyles.json */
+  --font-afacad: "Afacad", sans-serif;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+}

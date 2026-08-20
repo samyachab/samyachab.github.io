@@ -1,0 +1,257 @@
+.osme {
+  position: relative;
+  overflow: clip;
+  background: var(--color-fond);
+  min-height: 100vh;
+  isolation: isolate;
+  overflow-anchor: none;
+}
+
+.osme__thread {
+  position: absolute;
+  top: -100px;
+  left: -260px;
+  width: 1500px;
+  height: 4000px;
+  max-width: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Hero */
+.osme__hero {
+  padding: 70px 80px 0;
+}
+
+.osme__logo {
+  height: clamp(90px, 11vw, 150px);
+  width: auto;
+  display: block;
+  margin-bottom: 34px;
+}
+
+.osme__tagline {
+  font-family: var(--font-afacad);
+  font-size: clamp(19px, 2vw, 25px);
+  line-height: 1.35;
+  color: var(--color-noir);
+  max-width: 700px;
+  margin: 0 0 32px;
+}
+
+.osme__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 900px;
+}
+
+.osme__tag {
+  font-family: var(--font-afacad);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 15px;
+  border-radius: 100px;
+  border: 0.5px solid var(--color-nuance-vert);
+  color: var(--color-nuance-vert);
+  white-space: nowrap;
+}
+
+/* Text sections + overlapping frames */
+.osme__main {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  padding: 150px 80px 0;
+}
+
+.osme__sections {
+  flex: 0 0 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.osme__block-title {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: normal;
+  text-transform: lowercase;
+  color: var(--color-nuance-vert);
+  margin: 0 0 16px;
+}
+
+.osme__block-text {
+  color: var(--color-gris);
+  margin: 0;
+}
+
+/* Overlapping frame composition (à la IKO): each screenshot overlaps the
+   previous one, staggered left-to-right, with a slight lift on hover. */
+.osme__frames {
+  position: relative;
+  flex: 1 1 0;
+  height: 620px;
+}
+
+.osme__frame {
+  position: absolute;
+  top: 0;
+  height: 600px;
+  width: auto;
+  border-radius: 6px;
+  cursor: zoom-in;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
+
+.osme__frame--0 {
+  left: 0;
+  z-index: 1;
+}
+
+.osme__frame--1 {
+  left: 220px;
+  top: 20px;
+  z-index: 2;
+}
+
+.osme__frame--2 {
+  left: 430px;
+  top: 45px;
+  z-index: 3;
+}
+
+.osme__frame--3 {
+  left: 560px;
+  top: 10px;
+  z-index: 4;
+}
+
+/* Supporting photos: a static full-width row of 4 */
+.osme__photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 150px 80px 0;
+}
+
+.osme__photo {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: zoom-in;
+  user-select: none;
+}
+
+/* CTA */
+.osme__cta-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 90px 80px 40px;
+}
+
+.osme__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid var(--color-nuance-vert);
+  border-radius: 8px;
+  padding: 14px 28px;
+  color: var(--color-nuance-vert);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: var(--font-afacad);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.osme__cta:hover {
+  background: var(--color-nuance-vert);
+  color: var(--color-blanc);
+}
+
+.osme__cta:hover svg path {
+  fill: var(--color-blanc);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .osme__main {
+    flex-direction: column;
+  }
+
+  .osme__sections {
+    flex: none;
+    width: 100%;
+  }
+
+  .osme__frames {
+    width: 100%;
+    height: 480px;
+  }
+
+  .osme__frame {
+    height: 460px;
+  }
+}
+
+@media (max-width: 760px) {
+  .osme__photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .osme__photo {
+    height: 260px;
+  }
+
+  .osme__frames {
+    height: 360px;
+  }
+
+  .osme__frame {
+    height: 340px;
+  }
+
+  .osme__frame--1 {
+    left: 130px;
+  }
+  .osme__frame--2 {
+    left: 240px;
+  }
+  .osme__frame--3 {
+    left: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .osme__hero {
+    padding: 50px 20px 0;
+  }
+
+  .osme__main,
+  .osme__photos,
+  .osme__cta-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .osme__main {
+    padding-top: 110px;
+  }
+
+  .osme__photos {
+    padding-top: 110px;
+    grid-template-columns: 1fr;
+  }
+
+  .osme__cta-wrap {
+    justify-content: flex-start;
+  }
+}

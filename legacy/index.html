@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samy Achab - Portfolio</title>
+<meta name="description" content="Portfolio of Samy Achab - product, project management, marketing and design. Engineer, designer and top 15 France 800m runner, currently seeking full-time opportunities.">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="fr" href="fr/index.html">
+<link rel="alternate" hreflang="x-default" href="index.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header" id="site-header">
+  <div class="header__left">
+    <a href="index.html" class="header__logo">samy achab</a>
+    <span class="header__lang" role="group" aria-label="Language">
+      <a href="fr/index.html" class="header__link" hreflang="fr" lang="fr">FR</a>
+      <span class="header__lang-sep" aria-hidden="true">/</span>
+      <a href="index.html" class="header__link" hreflang="en" lang="en" aria-current="true">EN</a>
+    </span>
+  </div>
+  <nav class="header__nav">
+    <a href="index.html" class="header__link" aria-current="page">Home</a>
+    <a href="case-study.html" class="header__link">Case Study</a>
+    <a href="athlete.html" class="header__link">Athlete</a>
+    <a href="creations.html" class="header__link">Creations</a>
+    <a href="about.html" class="header__link">About</a>
+  </nav>
+</header>
+
+<div class="page">
+  <main class="home-body">
+    <div class="home-body__art">
+      <img src="assets/images/hero-bg.png" alt="">
+    </div>
+
+    <section class="hero-block">
+      <div class="hero">
+      <div class="hero__left">
+        <div class="hero__photo">
+          <img src="assets/images/samy.png" alt="Samy Achab">
+        </div>
+        <h1 class="hero__name">i&rsquo;m Samy Achab</h1>
+        <p class="hero__tagline">Currently seeking<br>full-time employment opportunities</p>
+        <a href="case-study.html" class="btn-outline">
+          Explore my work
+          <span class="btn-outline__arrow">
+            <span class="btn-outline__arrow-line"></span>
+            <span class="btn-outline__arrow-head"></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="hero__right">
+        <div class="filters" role="tablist" aria-label="Filtrer la description par domaine">
+          <button class="filters__btn" type="button" data-filter="product" aria-pressed="true">Product</button>
+          <button class="filters__btn" type="button" data-filter="marketing" aria-pressed="false">MArketing</button>
+          <button class="filters__btn" type="button" data-filter="design" aria-pressed="false">Design</button>
+          <button class="filters__btn" type="button" data-filter="athlete" aria-pressed="false">Athlete</button>
+        </div>
+        <div class="hero__description">
+          <p id="filter-description" data-product="I shape digital experiences. From identifying user friction to optimizing adoption, I build products with data-driven insights. Every feature solves a real problem." data-marketing="I build movements, not just campaigns. From street marketing with 100+ participants to brand partnerships with Nike, I create experiences that engage communities. It&rsquo;s about authenticity and impact." data-design="I explore the journey between experience design, graphic creation, and visual expression. From interactive prototypes in Figma to cohesive brand assets, I believe design communicates without words" data-athlete="I thrive under pressure. Top 15 France 800m runner, I bring the same discipline, resilience, and competitive mindset to every challenge. Success is built through consistency, not shortcuts">I shape digital experiences. From identifying user friction to optimizing adoption, I build products with data-driven insights. Every feature solves a real problem.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="cases-block">
+      <div class="cases" aria-label="Projets phares">
+      <a href="case-study-iko.html" class="case-card case-card--iko">
+        <div class="case-card__logo"><img src="assets/images/logo-iko.svg" alt="Logo IKO"></div>
+        <div class="case-card__content">
+          <p class="case-card__label">Product</p>
+          <p class="case-card__title">iko</p>
+          <p class="case-card__date">2025 - Present</p>
+          <p class="case-card__desc">A platform connecting verified pace-setters with goal-oriented runners and race organizers. Eliminating improvisation in pacing for athletes who cannot afford to miss their targets.</p>
+          <div class="case-card__tags">
+            <span class="case-card__tag">Product strategy</span>
+            <span class="case-card__tag">UX/UI Design</span>
+            <span class="case-card__tag">Entrepreneurship</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="case-study-sunday.html" class="case-card case-card--sunday">
+        <div class="case-card__logo"><img src="assets/images/logo-sunday.svg" alt="Logo sunday"></div>
+        <div class="case-card__content">
+          <p class="case-card__label">Project Management</p>
+          <p class="case-card__title">sunday</p>
+          <p class="case-card__date">December 2025 - May 2026</p>
+          <p class="case-card__desc">Project Manager at a restaurant payment startup. Led an international support team of 10, recovered 50k euros in unpaid fees, and automated key operations.</p>
+          <div class="case-card__tags">
+            <span class="case-card__tag">Project Management</span>
+            <span class="case-card__tag">Data analysis</span>
+            <span class="case-card__tag">Automation</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="case-study-eightlines.html" class="case-card case-card--e8l">
+        <div class="case-card__logo"><img src="assets/images/logo-e8l.svg" alt="Logo Eightlines"></div>
+        <div class="case-card__content">
+          <p class="case-card__label">Marketing &amp; Events</p>
+          <p class="case-card__title">Eightlines</p>
+          <p class="case-card__date">May 2024 - Present</p>
+          <p class="case-card__desc">Building a running culture movement across Tokyo, Paris, and Los Angeles. Events, brand partnerships, and community at scale with Nike, PSG, and ON.</p>
+          <div class="case-card__tags">
+            <span class="case-card__tag">Event Management</span>
+            <span class="case-card__tag">Brand Strategy</span>
+            <span class="case-card__tag">Consulting</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="case-study-osme.html" class="case-card case-card--osme">
+        <div class="case-card__logo"><img src="assets/images/logo-osme.png" alt="Logo ØSME"></div>
+        <div class="case-card__content">
+          <p class="case-card__label">Design</p>
+          <img class="case-card__title case-card__title--img" src="assets/images/titre-design.svg" alt="ØSME">
+          <p class="case-card__date">Jui - Sep 2024</p>
+          <p class="case-card__desc">Visual identity and digital presence for an ethical fashion concept store showcasing emerging French eco-responsible designers.</p>
+          <div class="case-card__tags">
+            <span class="case-card__tag">UX/UI Design</span>
+            <span class="case-card__tag">Art Direction</span>
+            <span class="case-card__tag">Social Media</span>
+          </div>
+        </div>
+      </a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="footer">
+  <p class="footer__copyright">&copy; 2026 - SAMY ACHAB</p>
+  <div class="footer__center">
+    <p class="footer__name">samy achab</p>
+    <div class="footer__info">
+      <a href="https://www.linkedin.com/in/samyachab/" target="_blank" rel="noopener">Linkedin</a>
+      <a href="assets/cv-samy-achab.pdf" target="_blank">Resume</a>
+      <a href="mailto:myachab@gmail.com">myachab@gmail.com</a>
+      <span>+33 7 82 28 56 76</span>
+    </div>
+  </div>
+  <img class="footer__icon" src="assets/images/footer-icon.svg" alt="">
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

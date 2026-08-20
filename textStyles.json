@@ -5,7 +5,8 @@
       "name": "H1",
       "fontFamily": "Afacad",
       "fontWeight": "Bold",
-      "fontSize": 40,
+      "fontSize": 64,
+      "lineHeight": "normal",
       "letterSpacing": {
         "unit": "PERCENT",
         "value": 0
@@ -14,9 +15,22 @@
     },
     {
       "name": "H2",
-      "fontFamily": "42dot Sans",
-      "fontWeight": "Light",
+      "fontFamily": "Afacad",
+      "fontWeight": "Bold",
+      "fontSize": 40,
+      "lineHeight": "normal",
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "H3",
+      "fontFamily": "Afacad",
+      "fontWeight": "SemiBold",
       "fontSize": 24,
+      "lineHeight": "normal",
       "letterSpacing": {
         "unit": "PERCENT",
         "value": 0
@@ -25,9 +39,10 @@
     },
     {
       "name": "body",
-      "fontFamily": "42dot Sans",
+      "fontFamily": "Space Grotesk",
       "fontWeight": "Regular",
       "fontSize": 16,
+      "lineHeight": 1.1,
       "letterSpacing": {
         "unit": "PERCENT",
         "value": 0
@@ -36,9 +51,22 @@
     },
     {
       "name": "body bold",
-      "fontFamily": "42dot Sans",
-      "fontWeight": "ExtraBold",
+      "fontFamily": "Space Grotesk",
+      "fontWeight": "Bold",
       "fontSize": 16,
+      "lineHeight": "normal",
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "Sous titre",
+      "fontFamily": "Space Grotesk",
+      "fontWeight": "Medium",
+      "fontSize": 16,
+      "lineHeight": "normal",
       "letterSpacing": {
         "unit": "PERCENT",
         "value": 0
@@ -47,36 +75,15 @@
     },
     {
       "name": "Label",
-      "fontFamily": "42dot Sans",
-      "fontWeight": "SemiBold",
+      "fontFamily": "Space Grotesk",
+      "fontWeight": "Light",
       "fontSize": 14,
+      "lineHeight": "normal",
       "letterSpacing": {
         "unit": "PERCENT",
         "value": 0
       },
       "textCase": "UPPER"
-    },
-    {
-      "name": "Label selected",
-      "fontFamily": "42dot Sans",
-      "fontWeight": "ExtraBold",
-      "fontSize": 16,
-      "letterSpacing": {
-        "unit": "PERCENT",
-        "value": 0
-      },
-      "textCase": "ORIGINAL"
-    },
-    {
-      "name": "Button",
-      "fontFamily": "42dot Sans",
-      "fontWeight": "ExtraBold",
-      "fontSize": 16,
-      "letterSpacing": {
-        "unit": "PERCENT",
-        "value": 0
-      },
-      "textCase": "ORIGINAL"
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "fileName": "Portfolio",
+  "colors": [
+    { "name": "Noir", "value": "#252525" },
+    { "name": "Fond", "value": "#F5F3F0" },
+    { "name": "Gris", "value": "#535353" },
+    { "name": "Gris clair", "value": "#CDC9C9" },
+    { "name": "Blanc", "value": "#FFFFFF" },
+    { "name": "Rouge", "value": "#DB3434" },
+    { "name": "Nuance rouge", "value": "#8E1212" },
+    { "name": "2nd color", "value": "#728E63" },
+    { "name": "Nuance vert", "value": "#3F5632" },
+    { "name": "Vert d'eau", "value": "#CCD3C4" }
+  ]
+}

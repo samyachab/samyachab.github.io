@@ -1,0 +1,267 @@
+.about {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-fond);
+  min-height: 100vh;
+  /* Own stacking context so the thread (z-index:-1) sits above the page
+     background but behind content, and so the bridge's mix-blend-mode
+     composites against the cream fond instead of an isolated transparent layer. */
+  isolation: isolate;
+}
+
+.about__thread {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 620px;
+  height: 2600px;
+  max-width: none;
+  z-index: -1;
+}
+
+/* Head: title left, subtitle right */
+.about__head {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 40px 0;
+}
+
+.about__title {
+  margin: 0;
+  color: var(--color-noir);
+}
+
+.about__subtitle {
+  margin: 0;
+  white-space: nowrap;
+  text-align: right;
+  color: var(--color-gris);
+  position: relative;
+  top: 14px;
+}
+
+/* Shared section title */
+.about__section-title {
+  color: var(--color-nuance-vert);
+  text-transform: lowercase;
+  margin: 0 0 40px;
+}
+
+/* Introduction */
+.about__introduction {
+  position: relative;
+  padding: 80px 40px 0;
+}
+
+.about__intro-body {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.about__intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 722px;
+}
+
+.about__intro-para {
+  margin: 0;
+  color: var(--color-noir);
+}
+
+.about__portrait {
+  width: 260px;
+  height: auto;
+  align-self: stretch;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Contact */
+.about__contact {
+  position: relative;
+  padding: 80px 40px 0;
+}
+
+.about__contact-info {
+  width: 722px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about__contact-link,
+.about__contact-phone {
+  color: var(--color-nuance-vert);
+}
+
+.about__contact-link {
+  text-decoration: underline;
+}
+
+/* Education (pushed to the right like Figma) */
+.about__education {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 80px 40px 0;
+}
+
+.about__bridge {
+  position: absolute;
+  left: -90px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 660px;
+  max-width: 52%;
+  height: auto;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.about__education-inner {
+  width: 744px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.about__education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about__education-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.about__education-icon {
+  width: 15px;
+  height: 19px;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.about__education-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about__education-degree {
+  margin: 0;
+  color: var(--color-noir);
+}
+
+.about__education-school,
+.about__education-dates {
+  margin: 0;
+  color: var(--color-gris);
+}
+
+.about__education-desc {
+  margin: 4px 0 0;
+  color: var(--color-noir);
+}
+
+/* Logos */
+.about__logos {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 100px 40px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about__logo {
+  height: 130px;
+  width: auto;
+  max-width: 30%;
+  object-fit: contain;
+}
+
+/* Closing */
+.about__closing {
+  position: relative;
+  color: var(--color-nuance-vert);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 40px 60px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .about__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .about__subtitle {
+    text-align: left;
+    white-space: normal;
+    top: 0;
+  }
+
+  .about__intro-body {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .about__portrait {
+    width: 260px;
+    align-self: center;
+  }
+
+  .about__education {
+    justify-content: flex-start;
+  }
+
+  .about__bridge {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .about__head,
+  .about__introduction,
+  .about__contact,
+  .about__education,
+  .about__logos,
+  .about__closing {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about__contact-info {
+    gap: 12px;
+  }
+
+  .about__logos {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .about__logo {
+    max-width: 60%;
+    height: auto;
+    max-height: 120px;
+  }
+}

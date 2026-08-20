@@ -1,0 +1,320 @@
+.el {
+  position: relative;
+  overflow: clip;
+  background: var(--color-fond);
+  min-height: 100vh;
+  isolation: isolate;
+  overflow-anchor: none;
+}
+
+.el__thread {
+  /* el-bg-fil-warped.svg is a piecewise-remapped version of the artist's
+     original thread: each of its 3 segments (poster1->poster2,
+     poster2->poster3, poster3->scale) is independently scaled/offset so the
+     path's own peaks/troughs land exactly on this page's actual poster and
+     "scale" section positions (measured live), while each segment keeps the
+     original hand-drawn wiggle. The warp target coordinates were chosen in
+     page-pixel space directly, so the SVG's viewBox already equals the
+     desired page position 1:1 — no extra CSS scaling needed here.
+     Uses the interactive RedThread component (not a flat background), so
+     the mouse-follow hover effect from the other case-study pages works. */
+  position: absolute;
+  /* top is relative to .el's own box, which itself starts 72px down the page
+     (below the header) — subtracted here so the warped path's baked-in
+     page-pixel coordinates line up with the actual page positions. */
+  top: 617px;
+  left: 545px;
+  width: 955px;
+  height: 3344px;
+  max-width: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Hero */
+.el__hero {
+  padding: 70px 80px 0;
+}
+
+.el__logo {
+  /* el-logo.png is a very wide wordmark (~13.9:1) compared to iko/sunday's
+     lockups (~4:1), so it needs a smaller height cap to read as the same
+     visual size rather than dominating the hero. */
+  height: clamp(36px, 4.4vw, 54px);
+  width: auto;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.el__tagline {
+  font-family: var(--font-afacad);
+  font-size: clamp(19px, 2vw, 25px);
+  line-height: 1.35;
+  color: var(--color-noir);
+  max-width: 760px;
+  margin: 0 0 32px;
+}
+
+.el__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 900px;
+}
+
+.el__tag {
+  font-family: var(--font-afacad);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 15px;
+  border-radius: 100px;
+  border: 0.5px solid var(--color-nuance-vert);
+  color: var(--color-nuance-vert);
+  white-space: nowrap;
+}
+
+/* Section titles (shared by "3 events organized" and "scale") */
+.el__section {
+  padding-top: 150px;
+}
+
+.el__section-title {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: normal;
+  text-transform: lowercase;
+  color: var(--color-nuance-vert);
+  margin: 0 0 60px;
+  padding: 0 80px;
+}
+
+/* Events. `.el__event + .el__event` (not :first-of-type, which would match the
+   first <section> in the DOM — the title wrapper — not the first event) keeps
+   the gap between events without adding one after the section title. */
+.el__event {
+  position: relative;
+}
+
+.el__event + .el__event {
+  padding-top: 190px;
+}
+
+/* Big editorial index numeral behind each event, breaks up the repetition */
+/* Positioned relative to .el__event-head (not the outer .el__event section)
+   so it lands at the same spot relative to the title/poster block for every
+   event, regardless of how much top spacing the section itself has. */
+.el__event-index {
+  position: absolute;
+  top: -18px;
+  left: 50px;
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: clamp(90px, 12vw, 170px);
+  line-height: 1;
+  color: rgba(63, 86, 50, 0.07);
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.el__event--right .el__event-index {
+  left: auto;
+  right: 50px;
+}
+
+.el__event-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  padding: 0 80px;
+  margin-bottom: 50px;
+}
+
+.el__event--right .el__event-head {
+  flex-direction: row-reverse;
+}
+
+.el__event-text {
+  flex: 1 1 0;
+  max-width: 560px;
+}
+
+.el__event-title {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: normal;
+  color: var(--color-noir);
+  margin: 0 0 6px;
+}
+
+.el__event-date {
+  font-family: var(--font-afacad);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--color-gris);
+  margin: 0 0 22px;
+}
+
+.el__event-text-body {
+  color: var(--color-gris);
+  margin: 0 0 26px;
+}
+
+.el__event-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.el__event-tag {
+  font-family: var(--font-afacad);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 15px;
+  border-radius: 100px;
+  border: 0.5px solid var(--color-nuance-vert);
+  color: var(--color-nuance-vert);
+  white-space: nowrap;
+}
+
+/* Poster: featured as a real design piece, not a filler image */
+.el__poster {
+  flex: 0 0 340px;
+  width: 340px;
+  height: auto;
+  border-radius: 6px;
+  cursor: zoom-in;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.22);
+  user-select: none;
+}
+
+.el__gallery {
+  position: relative;
+  z-index: 1;
+}
+
+.el__photo {
+  height: clamp(260px, 32vw, 420px);
+  width: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: zoom-in;
+  user-select: none;
+}
+
+/* Scale */
+.el__scale {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  padding: 0 80px;
+}
+
+.el__scale-item {
+  flex: 1 1 220px;
+}
+
+.el__scale-number {
+  font-family: var(--font-afacad);
+  font-weight: 700;
+  font-size: clamp(22px, 2.4vw, 30px);
+  color: var(--color-noir);
+  margin: 0 0 10px;
+}
+
+.el__scale-label {
+  color: var(--color-gris);
+  margin: 0 0 18px;
+}
+
+.el__scale-fil {
+  width: 100%;
+  height: 12px;
+}
+
+/* CTA */
+.el__cta-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 90px 80px 40px;
+}
+
+.el__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid var(--color-nuance-vert);
+  border-radius: 8px;
+  padding: 14px 28px;
+  color: var(--color-nuance-vert);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: var(--font-afacad);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.el__cta:hover {
+  background: var(--color-nuance-vert);
+  color: var(--color-blanc);
+}
+
+.el__cta:hover svg path {
+  fill: var(--color-blanc);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .el__event-head,
+  .el__event--right .el__event-head {
+    flex-direction: column;
+  }
+
+  .el__poster {
+    flex: none;
+    width: 60%;
+    max-width: 320px;
+  }
+
+  .el__event-index {
+    font-size: clamp(70px, 20vw, 110px);
+  }
+}
+
+@media (max-width: 640px) {
+  .el__hero {
+    padding: 50px 20px 0;
+  }
+
+  .el__section-title,
+  .el__event-head,
+  .el__scale,
+  .el__cta-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .el__section {
+    padding-top: 110px;
+  }
+
+  .el__poster {
+    width: 78%;
+    max-width: none;
+  }
+
+  .el__scale {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
