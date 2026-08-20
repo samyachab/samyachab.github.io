@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
 import CaseStudy from "./pages/CaseStudy";
@@ -56,9 +56,9 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <CustomCursor />
       <AnimatedRoutes />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
