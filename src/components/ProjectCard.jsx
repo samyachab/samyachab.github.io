@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { toHash } from "../utils/href";
 import "./ProjectCard.css";
 
 const cardVariants = {
@@ -51,7 +52,7 @@ export default function ProjectCard({ project }) {
   return (
     <motion.a
       ref={ref}
-      href={project.href}
+      href={toHash(project.href)}
       className={`project-card project-card--${project.slug}`}
       variants={cardVariants}
       onMouseMove={handleMouseMove}

@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { toHash } from "../utils/href";
 
 export default function MagneticButton({
   href,
@@ -48,7 +49,7 @@ export default function MagneticButton({
   return (
     <motion.a
       ref={ref}
-      href={href}
+      href={toHash(href)}
       className={className}
       variants={variants}
       style={{ x: springX, y: springY }}

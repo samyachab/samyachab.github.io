@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { toHash } from "../utils/href";
 import "./Header.css";
 
 export default function Header({ nav, langSwitch, current }) {
@@ -18,10 +19,10 @@ export default function Header({ nav, langSwitch, current }) {
   return (
     <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
       <div className="site-header__left">
-        <a href={nav[0].href} className="site-header__logo h3">
+        <a href={toHash(nav[0].href)} className="site-header__logo h3">
           samy achab
         </a>
-        <a href={langSwitch.href} className="site-header__lang label">
+        <a href={toHash(langSwitch.href)} className="site-header__lang label">
           {langSwitch.label}
         </a>
       </div>
@@ -29,7 +30,7 @@ export default function Header({ nav, langSwitch, current }) {
         {nav.map((link) => (
           <a
             key={link.key}
-            href={link.href}
+            href={toHash(link.href)}
             className={`site-header__link label${link.key === current ? " site-header__link--active" : ""}`}
             onMouseEnter={() => setHovered(link.key)}
           >
