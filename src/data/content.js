@@ -541,10 +541,10 @@ export const content = {
         },
       ],
       frames: [
-        "/assets/images/osme-core-1.jpg",
-        "/assets/images/osme-core-2.jpg",
-        "/assets/images/osme-core-3.jpg",
-        "/assets/images/osme-core-4.jpg",
+        "/assets/images/osmeUX2.png",
+        "/assets/images/CREATEURS.png",
+        "/assets/images/REJOINDRE OSME.png",
+        "/assets/images/PANIER.png",
       ],
       photos: [
         "/assets/images/osme-support-2.jpg",
@@ -1012,10 +1012,10 @@ export const content = {
         },
       ],
       frames: [
-        "/assets/images/osme-core-1.jpg",
-        "/assets/images/osme-core-2.jpg",
-        "/assets/images/osme-core-3.jpg",
-        "/assets/images/osme-core-4.jpg",
+        "/assets/images/osmeUX2.png",
+        "/assets/images/CREATEURS.png",
+        "/assets/images/REJOINDRE OSME.png",
+        "/assets/images/PANIER.png",
       ],
       photos: [
         "/assets/images/osme-support-2.jpg",

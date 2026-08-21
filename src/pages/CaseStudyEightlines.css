@@ -289,11 +289,29 @@
   .el__event-index {
     font-size: clamp(70px, 20vw, 110px);
   }
+
+  /* Stacked (column) layout puts every event's title flush left regardless
+     of its desktop left/right alignment, but the numeral was still following
+     that desktop side (right:50px for "right" events) — landing off in empty
+     space next to the title instead of behind it. Anchor it to the same
+     left position as the title for every event, for a consistent look. */
+  .el__event--right .el__event-index {
+    left: 50px;
+    right: auto;
+  }
 }
 
 @media (max-width: 640px) {
   .el__hero {
     padding: 50px 20px 0;
+  }
+
+  .el__logo {
+    /* At the height-based clamp's own minimum, this wordmark's extreme
+       ~13.9:1 aspect ratio still renders ~500px wide — badly overflowing a
+       phone screen. Cap by width instead below this breakpoint. */
+    height: auto;
+    width: min(78vw, 320px);
   }
 
   .el__section-title,

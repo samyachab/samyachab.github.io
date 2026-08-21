@@ -166,6 +166,15 @@
     height: 200px;
   }
 
+  /* The base rule's `width: 441px` doesn't get capped by its own
+     `max-width: 100%` here — .hero__info and .hero__content both use
+     align-items: flex-start (shrink-to-fit), so the percentage has no
+     definite containing-block width to resolve against and the literal
+     441px wins, overflowing any narrower phone screen. */
+  .hero__description {
+    width: 100%;
+  }
+
   .hero__cta {
     align-self: stretch;
     justify-content: center;
