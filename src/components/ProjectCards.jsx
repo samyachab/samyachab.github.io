@@ -26,6 +26,7 @@ export default function ProjectCards({ projects }) {
   const isDesktop = useIsDesktop();
   const pinRef = useRef(null);
   const trackRef = useRef(null);
+  const stickyRef = useRef(null);
   const [scrollDist, setScrollDist] = useState(0);
 
   const { scrollYProgress } = useScroll({ target: pinRef, offset: ["start start", "end end"] });
@@ -49,6 +50,24 @@ export default function ProjectCards({ projects }) {
       clearTimeout(t);
     };
   }, [isDesktop, projects]);
+
+  // The pin already turns ordinary vertical wheel scroll into horizontal card
+  // movement (it's driven by window scroll position). But a horizontal wheel
+  // gesture — shift+wheel on a mouse, or a trackpad's horizontal swipe — has
+  // no vertical component, so it does nothing by default. Redirect it into
+  // vertical scroll so hovering the cards and scrolling sideways also pans them.
+  useEffect(() => {
+    if (!isDesktop) return;
+    const sticky = stickyRef.current;
+    if (!sticky) return;
+    const onWheel = (e) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      window.scrollBy({ top: e.deltaX });
+    };
+    sticky.addEventListener("wheel", onWheel, { passive: false });
+    return () => sticky.removeEventListener("wheel", onWheel);
+  }, [isDesktop]);
 
   // Mobile / small screens: native horizontal scroll (unchanged behaviour).
   if (!isDesktop) {
@@ -74,7 +93,7 @@ export default function ProjectCards({ projects }) {
       ref={pinRef}
       style={{ height: `calc(100vh + ${scrollDist}px)` }}
     >
-      <div className="project-cards-sticky">
+      <div className="project-cards-sticky" ref={stickyRef}>
         <motion.div className="project-cards-track" ref={trackRef} style={{ x }}>
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
