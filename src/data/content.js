@@ -528,15 +528,15 @@ export const content = {
       tags: ["Art direction", "Figma", "Prototyping", "UX/UI design", "Adobe suite", "Social media content", "Sourcing"],
       sections: [
         {
-          title: "ui/ux design and prototyping",
+          title: "design ui/ux et prototypage",
           text: "Conçu une partie du site OSME sur Figma : architecture de l'information, parcours utilisateurs, wireframes et prototype haute-fidélité. Cartographié le parcours, de la découverte de la marque jusqu'à l'achat, en équilibrant ambition esthétique et clarté fonctionnelle. Le site devait refléter l'identité de chaque créateur émergent tout en gardant une expérience de plateforme cohérente.",
         },
         {
-          title: "art direction",
+          title: "direction artistique",
           text: "Palette de couleurs, typographie, design d'affiches et assets visuels cohérents avec le positionnement de marque. Supports print et identité visuelle en boutique pensés pour correspondre à l'expérience digitale.",
         },
         {
-          title: "social media",
+          title: "réseaux sociaux",
           text: "Création de vidéos et de posts alignés avec la direction artistique. Du contenu construit pour communiquer les valeurs du concept store : mode éthique, talents émergents, indépendance créative.",
         },
       ],

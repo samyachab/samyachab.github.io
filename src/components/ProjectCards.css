@@ -6,8 +6,12 @@
   padding: 40px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(37, 37, 37, 0.12) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.project-cards::-webkit-scrollbar {
+  display: none;
 }
 
 /* Desktop: pinned section, cards translate horizontally on vertical scroll */

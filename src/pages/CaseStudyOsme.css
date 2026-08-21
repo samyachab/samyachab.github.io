@@ -58,19 +58,31 @@
   white-space: nowrap;
 }
 
-/* Text sections + overlapping frames */
+/* Text sections + overlapping frames. Grid (not flex) so each text block and
+   the frame group are independent items: on desktop they form two columns
+   (3 stacked rows of text beside the frames spanning all 3 rows); on mobile
+   the same items get reordered via `order` to interleave text and frames
+   instead of grouping all the text before all the frames. */
 .osme__main {
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  grid-template-areas:
+    "b0 frames"
+    "b1 frames"
+    "b2 frames";
+  column-gap: 60px;
+  row-gap: 56px;
   padding: 150px 80px 0;
 }
 
-.osme__sections {
-  flex: 0 0 380px;
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
+.osme__block--0 {
+  grid-area: b0;
+}
+.osme__block--1 {
+  grid-area: b1;
+}
+.osme__block--2 {
+  grid-area: b2;
 }
 
 .osme__block-title {
@@ -89,60 +101,75 @@
 }
 
 /* Overlapping frame composition (à la IKO): each screenshot overlaps the
-   previous one, staggered left-to-right, with a slight lift on hover. */
+   previous one, staggered left-to-right. Each frame is a fixed-height
+   "window" (overflow: hidden) onto a taller render of the actual page
+   screenshot — hovering scrolls that inner image upward, like a live
+   preview of the site, instead of just lifting a static crop. */
 .osme__frames {
+  grid-area: frames;
   position: relative;
-  flex: 1 1 0;
-  height: 620px;
+  height: 400px;
 }
 
 .osme__frame {
   position: absolute;
   top: 0;
-  height: 600px;
-  width: auto;
+  height: 380px;
+  overflow: hidden;
   border-radius: 6px;
   cursor: zoom-in;
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.2);
   user-select: none;
 }
 
+.osme__frame-img {
+  display: block;
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: top;
+}
+
 .osme__frame--0 {
   left: 0;
+  width: 226px;
   z-index: 1;
 }
 
 .osme__frame--1 {
-  left: 220px;
+  left: 195px;
   top: 20px;
+  width: 231px;
   z-index: 2;
 }
 
 .osme__frame--2 {
-  left: 430px;
+  left: 380px;
   top: 45px;
+  width: 160px;
   z-index: 3;
 }
 
 .osme__frame--3 {
-  left: 560px;
+  left: 495px;
   top: 10px;
+  width: 471px;
   z-index: 4;
 }
 
-/* Supporting photos: a static full-width row of 4 */
+/* Supporting photos: a static full-bleed row of 4, edge to edge */
 .osme__photos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 150px 80px 0;
+  gap: 0;
+  margin-top: 150px;
+  width: 100%;
 }
 
 .osme__photo {
   width: 100%;
   height: 420px;
   object-fit: cover;
-  border-radius: 8px;
   cursor: zoom-in;
   user-select: none;
 }
@@ -183,22 +210,80 @@
 
 /* Responsive */
 @media (max-width: 1100px) {
+  /* Switch from the 2-column grid to a single flex column, and reorder the
+     items with `order` so the frames (all 4 are screenshots of the
+     section-0 website work) land right after that first text block —
+     text -> frames -> text -> text — instead of all 3 texts then all 4
+     frames with no visual link between a block and its frames. */
   .osme__main {
+    display: flex;
     flex-direction: column;
+    gap: 40px;
+    padding-top: 150px;
   }
 
-  .osme__sections {
-    flex: none;
-    width: 100%;
+  .osme__block--0 {
+    order: 1;
+  }
+  .osme__frames {
+    order: 2;
+  }
+  .osme__block--1 {
+    order: 3;
+  }
+  .osme__block--2 {
+    order: 4;
   }
 
+  /* The absolute-positioned overlap composition is tuned for a wide side
+     column; below that width it just overflows. The frames are the more
+     important content here (vs. the supporting photos below), so stack
+     them one per row instead of squeezing all 4 into a short strip —
+     each shown large, at its real aspect ratio (339:900, 346:900, 240:900,
+     707:900), capped to the container width so none can overflow. */
   .osme__frames {
     width: 100%;
-    height: 480px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
   }
 
-  .osme__frame {
-    height: 460px;
+  .osme__frame,
+  .osme__frame--0,
+  .osme__frame--1,
+  .osme__frame--2,
+  .osme__frame--3 {
+    position: static;
+    left: auto;
+    top: auto;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .osme__frame--0 {
+    width: min(340px, 100%);
+    aspect-ratio: 339 / 900;
+  }
+  .osme__frame--1 {
+    width: min(346px, 100%);
+    aspect-ratio: 346 / 900;
+  }
+  .osme__frame--2 {
+    width: min(240px, 100%);
+    aspect-ratio: 240 / 900;
+  }
+  .osme__frame--3 {
+    width: min(500px, 100%);
+    aspect-ratio: 707 / 900;
+  }
+
+  .osme__frame-img {
+    /* No hover on touch devices — just show a static top-cropped view
+       filling the frame (object-fit: cover, set above, handles the crop). */
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -210,24 +295,6 @@
   .osme__photo {
     height: 260px;
   }
-
-  .osme__frames {
-    height: 360px;
-  }
-
-  .osme__frame {
-    height: 340px;
-  }
-
-  .osme__frame--1 {
-    left: 130px;
-  }
-  .osme__frame--2 {
-    left: 240px;
-  }
-  .osme__frame--3 {
-    left: 320px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -236,7 +303,6 @@
   }
 
   .osme__main,
-  .osme__photos,
   .osme__cta-wrap {
     padding-left: 20px;
     padding-right: 20px;
@@ -246,12 +312,17 @@
     padding-top: 110px;
   }
 
+  /* .osme__photos keeps no horizontal padding — stays edge-to-edge on mobile too. */
   .osme__photos {
-    padding-top: 110px;
+    margin-top: 110px;
     grid-template-columns: 1fr;
   }
 
   .osme__cta-wrap {
     justify-content: flex-start;
+  }
+
+  .osme__frames {
+    gap: 20px;
   }
 }

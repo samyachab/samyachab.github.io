@@ -43,38 +43,48 @@ export default function CaseStudyOsme({ locale }) {
           </motion.div>
         </motion.section>
 
-        {/* Text sections + overlapping frame composition */}
+        {/* Text sections + overlapping frame composition. Each text block and
+            the frame group are independent grid/flex items (not wrapped in a
+            shared container) so mobile can reorder them with CSS `order` —
+            interleaving frames (all 4 are screenshots of the section-0
+            website work) right after their matching text — while desktop
+            still lays the 3 texts out as one column beside the frames. */}
         <section className="osme__main">
-          <motion.div
-            className="osme__sections"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={stagger(0.15)}
-          >
-            {c.sections.map((s) => (
-              <motion.div className="osme__block" key={s.title} variants={fadeUp}>
-                <h2 className="osme__block-title">{s.title}</h2>
-                <p className="osme__block-text body">{s.text}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+          {c.sections.map((s, i) => (
+            <motion.div
+              className={`osme__block osme__block--${i}`}
+              key={s.title}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUp}
+            >
+              <h2 className="osme__block-title">{s.title}</h2>
+              <p className="osme__block-text body">{s.text}</p>
+            </motion.div>
+          ))}
 
           <div className="osme__frames">
             {c.frames.map((src, i) => (
-              <motion.img
+              <motion.div
                 key={src}
                 className={`osme__frame osme__frame--${i}`}
-                src={src}
-                alt=""
-                draggable={false}
-                onClick={() => setLightbox({ images: c.frames, index: i })}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={viewport}
                 whileHover={{ y: -10, zIndex: 10 }}
                 transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              />
+                onClick={() => setLightbox({ images: c.frames, index: i })}
+              >
+                <motion.img
+                  className="osme__frame-img"
+                  src={src}
+                  alt=""
+                  draggable={false}
+                  initial={{ y: 0 }}
+                  whileHover={{ y: -220, transition: { duration: 2.4, ease: "easeInOut" } }}
+                />
+              </motion.div>
             ))}
           </div>
         </section>
